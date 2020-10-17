@@ -2,6 +2,7 @@ import React from "react";
 import "@elastic/eui/dist/eui_theme_light.css";
 import "@elastic/charts/dist/theme_only_light.css";
 import {
+  EuiAccordion,
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeader,
@@ -18,6 +19,7 @@ import {
 import "moment-timezone";
 import TransactionList from "./TransactionList.jsx";
 import StatsBox from "./StatsBox";
+import StatCharts from "./StatCharts";
 
 let today = new Date();
 today.setDate(25);
@@ -44,6 +46,31 @@ function App() {
       <EuiPage>
         <EuiPageContent>
           <EuiPageContentBody>
+            <EuiAccordion
+                id="accordion1"
+                buttonContent="Charts">
+              <EuiFlexGroup>
+                <EuiFlexItem grow={false}>
+                  <EuiPanel>
+                    Current Month
+                    <StatCharts
+                        from={lastMonth.toLocaleDateString("sv")}
+                        to={today.toLocaleDateString("sv")}
+                    />
+                  </EuiPanel>
+                </EuiFlexItem>
+                <EuiFlexItem grow={false}>
+                  <EuiPanel>
+                    Last Month
+                    <StatCharts
+                        from={twoMonthsAgo.toLocaleDateString("sv")}
+                        to={lastMonth.toLocaleDateString("sv")}
+                    />
+                  </EuiPanel>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+
+            </EuiAccordion>
             <EuiFlexGroup>
               <EuiFlexItem grow={false}>
                 <EuiPanel>
