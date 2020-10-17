@@ -1,12 +1,20 @@
 import React from "react";
 
 import axios from "axios";
-import {EuiHealth, EuiInMemoryTable,} from "@elastic/eui";
+import { EuiHealth, EuiInMemoryTable } from "@elastic/eui";
 
 const columns = [
   {
     field: "date",
     name: "Date",
+  },
+  {
+    field: "category",
+    name: "Category",
+    render: (category) => {
+      if (!category) return "-";
+      else return category;
+    },
   },
   {
     field: "title",
