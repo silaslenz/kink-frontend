@@ -43,10 +43,6 @@ const columns = [
       return balance.toLocaleString("sv", { minimumFractionDigits: 2 });
     },
   },
-  {
-    field: "currency",
-    name: "Currency",
-  },
 ];
 
 const search = {
