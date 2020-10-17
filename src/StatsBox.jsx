@@ -5,7 +5,7 @@ import { EuiStat } from "@elastic/eui";
 
 export default class StatsBox extends React.Component {
   state = {
-    monthSum: 0,
+    stats: 0,
     color: "subdued",
   };
 
@@ -13,18 +13,18 @@ export default class StatsBox extends React.Component {
     axios
       .get(`http://localhost:8080/stats/${this.props.from}/${this.props.to}`)
       .then((res) => {
-        const monthSum = res.data;
+        const stats = res.data;
         let color;
-        if (parseFloat(monthSum) < 0) color = "danger";
+        if (parseFloat(stats.total) < 0) color = "danger";
         else color = "secondary";
-        this.setState({ monthSum, color });
+        this.setState({ stats, color });
       });
   }
 
   render() {
     return (
       <EuiStat
-        title={this.state.monthSum}
+        title={this.state.stats.total}
         description={this.props.description}
         titleColor={this.state.color}
       />
