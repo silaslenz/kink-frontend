@@ -43,6 +43,7 @@ export default class StatCharts extends React.Component {
                     cx={200}
                     cy={200}
                     outerRadius={90}
+                    innerRadius={70}
                     label={renderLabel}
                 >{
                     this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
