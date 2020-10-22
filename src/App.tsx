@@ -46,47 +46,22 @@ function App() {
       <EuiPage>
         <EuiPageContent>
           <EuiPageContentBody>
-            <EuiAccordion
-                id="accordion1"
-                buttonContent="Charts">
-              <EuiFlexGroup>
-                <EuiFlexItem grow={false}>
-                  <EuiPanel>
-                    Current Month
-                    <StatCharts
-                        from={lastMonth.toLocaleDateString("sv")}
-                        to={today.toLocaleDateString("sv")}
-                    />
-                  </EuiPanel>
-                </EuiFlexItem>
-                <EuiFlexItem grow={false}>
-                  <EuiPanel>
-                    Last Month
-                    <StatCharts
-                        from={twoMonthsAgo.toLocaleDateString("sv")}
-                        to={lastMonth.toLocaleDateString("sv")}
-                    />
-                  </EuiPanel>
-                </EuiFlexItem>
-              </EuiFlexGroup>
-
-            </EuiAccordion>
             <EuiFlexGroup>
               <EuiFlexItem grow={false}>
                 <EuiPanel>
-                  <StatsBox
+                  Current Month
+                  <StatCharts
                     from={lastMonth.toLocaleDateString("sv")}
                     to={today.toLocaleDateString("sv")}
-                    description={"Current month"}
                   />
                 </EuiPanel>
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
                 <EuiPanel>
-                  <StatsBox
+                  Last Month
+                  <StatCharts
                     from={twoMonthsAgo.toLocaleDateString("sv")}
                     to={lastMonth.toLocaleDateString("sv")}
-                    description={"Last month"}
                   />
                 </EuiPanel>
               </EuiFlexItem>
